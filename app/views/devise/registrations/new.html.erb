@@ -1,29 +1,48 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="signup">
+  <div class="title">
+    <h2>新規登録</h2>
+    </p>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="signup_content">
+      <div class="field">
+        <%= f.label :name, "ユーザー名", class: "label-name" %><br />
+        <%= f.text_field :name, autofocus: true, class: "dynamic-line" %>
+        <div class="underline-center"></div>
+      </div>
+  
+      <div class="field">
+        <%= f.label :email, "メールアドレス", class: "label-name" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "dynamic-line" %>
+        <div class="underline-center"></div>
+      </div>
+  
+      <div class="field">
+        <%= f.label :password, "パスワード", class: "label-name" %>
+        <% if @minimum_password_length %>
+        （<%= @minimum_password_length %> 文字以上）
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password", class: "dynamic-line" %>
+        <div class="underline-center"></div>
+      </div>
+  
+      <div class="field">
+        <%= f.label :password_confirmation, "パスワード（確認）", class: "label-name" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "dynamic-line" %>
+        <div class="underline-center"></div>
+      </div>
+  
+      <div class="actions">
+        <%= f.submit "新規登録", class: "actions-btn" %>
+        <p>登録またはログインすることで、利用規約とプライバシーポリシーに同意したものとみなされます。</p>
+      </div>
+      <div class="login">
+        <p>アカウントをお持ちの方</p>
+        <div class="login-page-btn">
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
