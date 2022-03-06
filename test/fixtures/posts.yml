@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: MyText
+  practice_timezone: MyString
+  weather: MyString
+  place: MyString
+  kind_of_practice: MyString
+  strength: MyString
+  user_id: 1
+  practice_day: 2022-03-06
+  practice_day_year: 1
+  practice_day_month: 1
+  practice_day_day: 1
+  practice_day_of_week: MyString
+
+two:
+  content: MyText
+  practice_timezone: MyString
+  weather: MyString
+  place: MyString
+  kind_of_practice: MyString
+  strength: MyString
+  user_id: 1
+  practice_day: 2022-03-06
+  practice_day_year: 1
+  practice_day_month: 1
+  practice_day_day: 1
+  practice_day_of_week: MyString
