@@ -127,88 +127,30 @@ nav {
 	width: 170px;
     padding-top: 10px;
     z-index: 100;
-    padding-left: 10px;
-}
-
-nav h2{
-    background-position: 20px center;
-	background-size: 14px 27px;
-	background-repeat: no-repeat;
-	color: #ffffff;
-	font-size:18px;
-	font-weight: bold;
-	line-height: 60px;
-	padding: 5px 0 0;
-	text-align: center;
-	cursor: pointer;
-    transition-property:all;
-    transition-duration: 0.2s;
-    transition-timing-function: ease;
-	transition-delay: 0.2s;
-
-	-moz-transition-property:all;
-	-moz-transition-duration: 0.2s;
-	-moz-transition-timing-function: ease;
-	-moz-transition-delay: 0.2s;
-
-	-webkit-transition-property:all;
-	-webkit-transition-duration: 0.2s;
-	-webkit-transition-timing-function: ease;
-	-webkit-transition-delay: 0.2s;
-
-	-o-transition-property:all;
-	-o-transition-duration: 0.2s;
-	-o-transition-timing-function: ease;
-	-o-transition-delay: 0.2s;
-}
-
-nav ul li{
-	cursor: pointer;
-	position: relative;
-}
-
-nav ul li a{
-    display: block;
-    padding: calc(0.5em);
-    color: rgb(71, 71, 71);
-}
-nav ul li.hover,
-nav ul li.more.hover,
-nav ul li.more:hover {
-	background-color: rgba(51, 51, 51, 0.8);
-}
-
-nav ul li.selected,
-nav ul li.selected a,
-nav ul li:hover,
-nav ul li:hover a,
-div.event_search_navi ul li.selected,
-div.event_search_navi ul li:hover {
-	// color: #1abc9c;
-	text-decoration: none;
-}
-
-nav span {
-    color: rgb(71, 71, 71);
-    width: 100%;
-    font-size: 14px;
-    line-height: 22px;
-    margin-left: 8px;
-}
-
-nav ul li.more {
-	background-repeat: no-repeat;
-	background-position: 150px center;
-	background-size: auto 13px;
-	position: relative;
-	display: block;
-}
-
-nav img{
-    // filter: invert(88%) sepia(61%) saturate(0%) hue-rotate(229deg) brightness(107%) contrast(101%);
-    width:24px;
-    height:24px;
-    vertical-align: middle;
+    padding-left: 15px;
+    ul {
+        li {
+            cursor: pointer;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            a {
+                display: block;
+                padding: calc(0.5em);
+                font-weight: 600;
+            }
+            &:hover {
+                a {
+                    color: #0BBBD7;
+                }
+            }
+        }
+    }
+    img{
+        width:24px;
+        height:24px;
+        vertical-align: middle;
+        margin-right: 3px;
+    }
 }
 
 .top {
