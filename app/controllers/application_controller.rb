@@ -1,7 +1,5 @@
 class ApplicationController < ActionController::Base
-    def hello
-        render html: "hello, world"
-    end
+
     before_action :configure_permitted_parameters, if: :devise_controller?
 
     protected
