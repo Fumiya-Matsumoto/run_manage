@@ -22,12 +22,16 @@
         </div>
       <% end %>
   
-      <div class="actions">
+      <div class="actions-login">
         <%= f.submit "ログイン", class: "actions-btn" %>
-        <div class="texts">
+      </div>
+      <div class="another-pages">
           <%= render "devise/shared/links" %>
-        </div>
+      </div>
+      <div class="message">
+        このサイトはreCAPTCHAで保護されており、Googleのプライバシーポリシーと利用規約が適用されます。
       </div>
     </div>
+
   <% end %>
 </div>
