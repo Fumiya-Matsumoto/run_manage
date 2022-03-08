@@ -55,16 +55,16 @@
     </div>
     <div>
       <div class="calender_header">
-        <div class="calender_header_col_1">
+        <div class="calender_header_col col_1">
           <p>日付</p>
         </div>
-        <div class="calender_header_col_2">
+        <div class="calender_header_col col_2">
           <p>内容</p>
         </div>
-        <div class="calender_header_col_3">
+        <div class="calender_header_col col_3">
           <p>距離<br>(日)</p>
         </div>
-        <div class="calender_header_col_4">
+        <div class="calender_header_col col_4">
           <p>月間<br>距離</p>
         </div>
       </div>
@@ -77,57 +77,59 @@
           <% pos = posts.where(practice_day_day: i.day) %>
           <% distance = 0 %>
           <div class="calender_content">
-            <div class="calender_header_col_1">
+            <div class="calender_content_col col_1">
               <p><%= i.day %>日<br>(<%= @days[i.wday] %>)</p>
             </div>
-            <div class="calender_content_col_2">
+            <div class="calender_content_col col_2">
               <% pos_morning = pos.where(practice_timezone: "朝") %>
               <% pos_noon = pos.where(practice_timezone: "午前") %>
               <% pos_afternoon = pos.where(practice_timezone: "午後") %>
               <% pos_all = [pos_morning, pos_noon, pos_afternoon] %>
               <% pos_all.each do |pos_each| %>
                 <% pos_each.each do |p| %>
-                  <div class="practice_menu">
-                    <div class="practice_timezone">
-                      <p><%= p.practice_timezone %></p>
+                  <div class="practice">
+                    <div class="practice_menu">
+                      <div class="practice_timezone">
+                        <p><%= p.practice_timezone %></p>
+                      </div>
+                      <div class="practice_content">
+                        <p><%= p.kind_of_practice %></p>
+                      </div>
+                      <div class="practice_content">
+                        <p><%= p.post_records[0].distance_km %>km</p>
+                        <% distance += p.post_records[0].distance_km.to_i %>
+                      </div>
+                      <div class="practice_content">
+                        <p>
+                          <% if p.post_records[0].time_hour %>
+                            <%= p.post_records[0].time_hour %>時間
+                          <% end %>
+                          <% if p.post_records[0].time_minute %>
+                            <%= p.post_records[0].time_minute %>分
+                          <% end %>
+                          <% if p.post_records[0].time_second %>
+                            <%= p.post_records[0].time_second %>秒
+                          <% end %>
+                        </p>
+                      </div>
                     </div>
-                    <div class="practice_content">
-                      <p><%= p.kind_of_practice %></p>
-                    </div>
-                    <div class="practice_content">
-                      <p><%= p.post_records[0].distance_km %>km</p>
-                      <% distance += p.post_records[0].distance_km.to_i %>
-                    </div>
-                    <div class="practice_content">
-                      <p>
-                        <% if p.post_records[0].time_hour %>
-                          <%= p.post_records[0].time_hour %>時間
-                        <% end %>
-                        <% if p.post_records[0].time_minute %>
-                          <%= p.post_records[0].time_minute %>分
-                        <% end %>
-                        <% if p.post_records[0].time_second %>
-                          <%= p.post_records[0].time_second %>秒
-                        <% end %>
-                      </p>
-                    </div>
-                  </div>
-                  <div class="buttons">
-                    <div class="edit_button">
-                      <%= link_to("編集", "/posts/#{p.id}/edit") %>
-                    </div>
-                    <div class="remove_button">
-                      <%= link_to("削除", "/posts/#{p.id}/destroy_show", {method: "post"}) %>
-                    </div>
+                    <div class="buttons">
+                        <div class="edit_button">
+                          <%= link_to("編集", "/posts/#{p.id}/edit") %>
+                        </div>
+                        <div class="remove_button">
+                          <%= link_to("削除", "/posts/#{p.id}/destroy_show", {method: "post"}) %>
+                        </div>
+                      </div>
                   </div>
                 <% end %>
               <% end %>
             </div>
-            <div class="calender_header_col_3">
+            <div class="calender_content_col col_3">
               <p><%= distance %></p>
               <% total_distance += distance %>
             </div>
-            <div class="calender_header_col_4">
+            <div class="calender_content_col col_4">
               <p><%= total_distance %></p>
             </div>
           </div>
