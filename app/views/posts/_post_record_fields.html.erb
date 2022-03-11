@@ -1,0 +1,24 @@
+<div class="nested-fields">
+    <div class="result-details">
+        <div class="remove">
+            <!-- 削除ボタン -->
+            <%= link_to_remove_association "削除", f %>
+        </div>
+        <div class="distance">
+            <%= f.number_field :distance_km %>
+        </div>
+        <div class="time-jog">
+            <div class="time-detail">
+                <div class="hour">
+                    <%= f.number_field :time_hour %>
+                </div>
+                <div class="minute">
+                    <%= f.number_field :time_minute %>
+                </div>
+                <div class="second">
+                    <%= f.number_field :time_second %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
