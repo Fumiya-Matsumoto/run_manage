@@ -11,7 +11,35 @@
   </head>
 
   <body>
-    <nav id="side_menu">
+    
+    <header>
+      <div class="header-logo">
+        <%= link_to "/" do %>
+          <%= image_tag "/assets/logo.png" %>
+        <% end %>
+      </div>
+      <ul class="header-menus">
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to "/" do %>
+              <%= image_tag "/assets/user_icon.svg" %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "text-white" %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to("新規登録", "/users/sign_up") %>
+          </li>
+          <li>
+            <%= link_to("ログイン", "/users/sign_in") %>
+          </li>
+        <% end %>
+      </ul>
+    </header>
+    <div id="main_contents">
+      <nav id="side_menu">
         <ul>
             <li class="selected">
                 <%= link_to "/" do %>
@@ -52,33 +80,6 @@
             </li>
         </ul>
     </nav>
-    <header>
-      <div class="header-logo">
-        <%= link_to "/" do %>
-          <%= image_tag "/assets/logo.png" %>
-        <% end %>
-      </div>
-      <ul class="header-menus">
-        <% if user_signed_in? %>
-          <li>
-            <%= link_to "/" do %>
-              <%= image_tag "/assets/user_icon.svg" %>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "text-white" %>
-          </li>
-        <% else %>
-          <li>
-            <%= link_to("新規登録", "/users/sign_up") %>
-          </li>
-          <li>
-            <%= link_to("ログイン", "/users/sign_in") %>
-          </li>
-        <% end %>
-      </ul>
-    </header>
-    <div id="main_contents">
       <div class="main-box">
         <% if flash[:notice]%>
           <div class="flash">
