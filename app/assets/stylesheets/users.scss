@@ -285,18 +285,19 @@
     margin: 5px 0px 0px 0px;
     width: 100%;
     border-left: 1px solid #EEEEEE;
+    border-right: 1px solid #EEEEEE;
     border-top: 1px solid #EEEEEE;
     .calender_content {
         display: flex;
         border-bottom: 1px solid #EEEEEE;
-        height: auto;
         width: 100%;
         justify-content: center;
         height: auto;
+        padding-top: 5px;
+        padding-bottom: 5px;
         .calender_content_col {
             border-right: 1px solid #EEEEEE;
             padding: 0 20px;
-            height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
