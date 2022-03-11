@@ -7,7 +7,7 @@
             </div>
         <% end %>
         <div class="notebook">
-        <%= form_for @post, url: "/posts/create" do |f| %>
+        <%= form_with model: @post, url: "/posts/create" do |f| %>
             <div class="notes">
                 <div class="days">
                     <h3>日付</h3>
