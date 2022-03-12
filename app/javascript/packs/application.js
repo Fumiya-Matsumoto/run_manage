@@ -9,6 +9,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 require("jquery")
 import "cocoon"
+import "./posts.js"
 
 
 Rails.start()

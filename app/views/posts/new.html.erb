@@ -63,7 +63,7 @@
                     <%= f.radio_button :kind_of_practice, "レスト" %>レスト
                 </div>
                 <!-- 結果 -->
-                <div class="results">
+                <div class="results switchItems">
                     <h3>結果</h3>
                     <div class="result">
                         <div class="result-header">
@@ -73,13 +73,24 @@
                                 <p>距離</p>
                                 <p class="distance-text">[km]</p>
                             </div>
-                            <div class="time-jog switchItems-interval">
+                            <div class="time">
                                 <p>タイム</p>
                                 <div class="time-detail">
                                     <div class="hour">時間[h]</div>
                                     <div class="minute">分[m]</div>
                                     <div class="second">秒[sec]</div>
                                 </div>
+                            </div>
+                            <div class="time high">
+                                <p>タイム</p>
+                                <div class="time-detail">
+                                    <div class="hour">時間[h]</div>
+                                    <div class="minute">分[m]</div>
+                                    <div class="second">秒[sec]</div>
+                                </div>
+                            </div>
+                            <div class="type high">
+                                疾走 or<br>リカバリー
                             </div>
                         </div>
                         <div id="detail-association-insertion-point"></div>

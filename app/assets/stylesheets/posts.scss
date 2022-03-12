@@ -53,7 +53,7 @@
               text-align: right;
             }
           }
-          .time-jog {
+          .time {
             width: 65%;
             margin-right: 1%;
             .time-detail {
@@ -92,8 +92,16 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            img {
-              width: 20px;
+            a {
+              padding: 0.1em 0.3em;
+              color: red;
+              font-size: 12px;
+              font-weight: 400;
+              border-radius: 5px;
+              border: 1px solid red;
+            } :hover {
+              text-decoration: none;
+              background-color: rgba(255, 0, 0, 0.123);
             }
           }
           .distance {
@@ -135,12 +143,15 @@
               }
             }
           }
-          .time-jog {
+          .time {
             width: 65%;
             margin-right: 1%;
             .time-detail {
               display: flex;
               align-items: center;
+            }
+            &.high {
+              width: 50%;
             }
             .hour {
               width: 33%;
@@ -174,6 +185,19 @@
             width: 15%;
           }
         }
+        .add-botton-box {
+          a {
+            padding: 0.5em;
+            color: #0BBBD7;
+            font-size: 12px;
+            font-weight: 400;
+            border-radius: 5px;
+            border: 1px solid #0BBBD7;
+          } :hover {
+            text-decoration: none;
+            background-color: #0bbcd725;
+          }
+        }
       }
     }
     .save-button {
@@ -191,7 +215,7 @@
         border-radius: 10px;
       } :hover {
         text-decoration: none;
-        background-color: rgba(8, 161, 185, 0.884);
+        background-color: #0bbcd725;
       }
   
     }

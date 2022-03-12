@@ -5,9 +5,9 @@
             <%= link_to_remove_association "削除", f %>
         </div>
         <div class="distance">
-            <%= f.number_field :distance_km %>
+            <%= f.number_field :distance_km, step: "0.1" %>
         </div>
-        <div class="time-jog">
+        <div class="time">
             <div class="time-detail">
                 <div class="hour">
                     <%= f.number_field :time_hour %>
@@ -19,6 +19,10 @@
                     <%= f.number_field :time_second %>
                 </div>
             </div>
+        </div>
+        <div class="type high">
+            <p><%= f.radio_button :type, "疾走" %>疾走</p>
+            <p><%= f.radio_button :type, "リカバリー" %>リカバリー</p>
         </div>
     </div>
 </div>
