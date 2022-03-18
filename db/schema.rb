@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_11_151734) do
+ActiveRecord::Schema.define(version: 2022_03_18_090139) do
 
   create_table "post_records", force: :cascade do |t|
     t.integer "post_id"
-    t.time "time"
+    t.float "time"
     t.float "distance_km"
     t.integer "distance_m"
-    t.integer "type"
+    t.integer "record_type"
     t.integer "number"
     t.integer "time_hour"
     t.integer "time_minute"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2022_03_11_151734) do
     t.integer "pace_undersecond"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "pace"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -44,6 +45,15 @@ ActiveRecord::Schema.define(version: 2022_03_11_151734) do
     t.string "practice_day_of_week"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "num"
+    t.integer "num_s"
+    t.integer "num_r"
+    t.float "pace"
+    t.float "pace_s"
+    t.float "pace_r"
+    t.float "time"
+    t.float "time_s"
+    t.float "time_r"
   end
 
   create_table "recipe_ingredients", force: :cascade do |t|

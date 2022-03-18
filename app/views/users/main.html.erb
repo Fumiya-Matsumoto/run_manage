@@ -15,19 +15,33 @@
                             <div class="distance-time">
                                 <div class="distance">
                                     <span class="figure">
-                                        <%= post.post_records[0].distance_km %>
+                                        <%= post.post_records.where(record_type: 0)[0].distance_km %>
                                     </span>
-                                    <span>km</span>
+                                    <span>m</span>
                                 </div>
                                 <div class="time">
-                                    <p>時間</p>
+                                    <p>平均タイム</p>
                                     <p class="figure">
-                                        <%= post.post_records[0].time_hour %>:<%= post.post_records[0].time_minute %>:<%= post.post_records[0].time_second %>
+                                        <%= post.time_s.div(60) %>:<%= post.time_s % 60 %>
                                     </p>
                                 </div>
                                 <div class="pace">
-                                    <p>ペース</p>
-                                    <p class="figure"><%= post.post_records[0].pace_minute %>:<%= post.post_records[0].pace_second %></p>
+                                    <p>本数</p>
+                                    <p class="figure"><%= post.num_s %>本</p>
+                                </div>
+                            </div>
+                            <div class="distance-time">
+                                <div class="distance">
+                                    <span class="figure">
+                                        <%= post.post_records.where(record_type: 1)[0].distance_km %>
+                                    </span>
+                                    <span>m</span>
+                                </div>
+                                <div class="time">
+                                    <p>平均タイム</p>
+                                    <p class="figure">
+                                        <%= post.time_r.div(60) %>:<%= post.time_r % 60 %>
+                                    </p>
                                 </div>
                             </div>
                         <% else %>
