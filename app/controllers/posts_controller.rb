@@ -86,6 +86,20 @@ class PostsController < ApplicationController
         end
     end
 
+    def destroy_show
+        @post = Post.find_by(id: params[:id])
+        @post.destroy
+        flash[:notice] = "投稿を削除しました"
+        redirect_to("/users/#{@post.user_id}/#{@post.practice_day_year}/#{@post.practice_day_month}")
+    end
+    
+    def destroy_main
+        @post = Post.find_by(id: params[:id])
+        @post.destroy
+        flash[:notice] = "投稿を削除しました"
+        redirect_to("/users/#{@post.user_id}")
+    end
+
     private
         def post_params
             params.require(:post).permit(
