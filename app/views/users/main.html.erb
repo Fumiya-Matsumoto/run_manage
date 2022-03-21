@@ -15,14 +15,14 @@
                             <div class="distance-time">
                                 <div class="distance">
                                     <span class="figure">
-                                        <%= post.post_records.where(record_type: 0)[0].distance_km %>
+                                        <%= post.post_records.where(record_type: 0)[0].distance_m %>
                                     </span>
                                     <span>m</span>
                                 </div>
                                 <div class="time">
                                     <p>平均タイム</p>
                                     <p class="figure">
-                                        <%= post.time_s.div(60) %>:<%= post.time_s % 60 %>
+                                        <%= post.time_s.div(60) %>:<%= (post.time_s % 60).round(1) %>
                                     </p>
                                 </div>
                                 <div class="pace">
@@ -33,14 +33,14 @@
                             <div class="distance-time">
                                 <div class="distance">
                                     <span class="figure">
-                                        <%= post.post_records.where(record_type: 1)[0].distance_km %>
+                                        <%= post.post_records.where(record_type: 1)[0].distance_m %>
                                     </span>
                                     <span>m</span>
                                 </div>
                                 <div class="time">
                                     <p>平均タイム</p>
                                     <p class="figure">
-                                        <%= post.time_r.div(60) %>:<%= post.time_r % 60 %>
+                                        <%= post.time_r.div(60) %>:<%= (post.time_r).round(1) % 60 %>
                                     </p>
                                 </div>
                             </div>
