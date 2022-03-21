@@ -36,10 +36,15 @@ class PostsController < ApplicationController
 
                 # distance_km、distance_m問題が解決したら以下のif文は直す
                 if params[:post][:kind_of_practice] == "ペース走" or params[:post][:kind_of_practice] == "ビルドアップ" or params[:post][:kind_of_practice] == "インターバル" or params[:post][:kind_of_practice] == "レペティション" or params[:post][:kind_of_practice] == "レース"
-                    pace = total_seconds / (params[:post][:post_records_attributes][num][:distance_km].to_f / 1000 )
+                    params[:post][:post_records_attributes][num][:distance_m] = params[:post][:post_records_attributes][num][:distance].to_f
+                    params[:post][:post_records_attributes][num][:distance_km] = params[:post][:post_records_attributes][num][:distance].to_f / 1000
+                    pace = total_seconds / (params[:post][:post_records_attributes][num][:distance_km])
                 else
-                    pace = total_seconds / params[:post][:post_records_attributes][num][:distance_km].to_f
+                    params[:post][:post_records_attributes][num][:distance_km] = params[:post][:post_records_attributes][num][:distance].to_f
+                    params[:post][:post_records_attributes][num][:distance_m] = params[:post][:post_records_attributes][num][:distance].to_f * 1000
+                    pace = total_seconds / params[:post][:post_records_attributes][num][:distance_km]
                 end
+
                 pace_minute = pace.div(60)
                 pace_second = pace % 60
                 pace_undersecond = pace - pace.to_f
@@ -47,16 +52,13 @@ class PostsController < ApplicationController
                 params[:post][:post_records_attributes][num][:pace_minute] = pace_minute
                 params[:post][:post_records_attributes][num][:pace_second] = pace_second
                 params[:post][:post_records_attributes][num][:pace_undersecond] = pace_undersecond
-                if params[:post][:kind_of_practice] == "ペース走" or params[:post][:kind_of_practice] == "ビルドアップ" or params[:post][:kind_of_practice] == "インターバル" or params[:post][:kind_of_practice] == "レペティション" or params[:post][:kind_of_practice] == "レース"
-                    params[:post][:post_records_attributes][num][:distance_m] = params[:post][:post_records_attributes][num][:distance_km] * 1000
-                end
             end
         end
 
         post_params = params.require(:post).permit(
         :practice_timezone, :weather, :place, :kind_of_practice, 
         :strength, :content, :practice_day,
-        post_records_attributes:[:distance_km, :time, :time_hour, :time_minute, :time_second, :record_type, :pace_minute, :pace_second, :pace_undersecond, :pace]
+        post_records_attributes:[:distance_km, :distance_m, :time, :time_hour, :time_minute, :time_second, :record_type, :pace_minute, :pace_second, :pace_undersecond, :pace]
         ).merge(user_id: current_user.id)
 
         @post = Post.create(post_params) # createだとsaveまでしちゃってる？
