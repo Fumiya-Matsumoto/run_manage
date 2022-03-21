@@ -88,7 +88,9 @@
                             <%= post.content %>
                         </div>
                         <div class="buttons">
-                            <%= link_to("編集", "/posts/#{post.id}/edit") %>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                編集
+                            </button>
                             <%= link_to("削除", "/posts/#{post.id}/destroy_main", {method: "post"}) %>
                         </div>
                     </div>
@@ -97,8 +99,10 @@
         <% end %>
     </div>
 </div>
-<script>
-    $(function() {
-        $('.thoughts').matchHeight();
-    });
-</script>
+
+<%= render layout: "modal", locals: {
+    class_name: "hello",
+    title: "Hello World",
+    action_name: "Agree"
+    } do %>
+<% end %>

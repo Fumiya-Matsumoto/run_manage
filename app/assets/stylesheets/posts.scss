@@ -274,3 +274,123 @@ section {
     }
 }
 
+/* 編集モーダル */
+.content-modal {
+    width: 100%;
+    margin-top: 20px;
+    border: #0BBBD7 solid 1px;
+    background-color: #0BBBD7;
+    border-radius: 10px 10px 0 0;
+    .date-timezone {
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        p {
+            color: white;
+            font-size: 20px;
+            font-weight: 600;
+        }
+    }
+    .practice {
+        background-color: white;
+        height: auto;
+        padding-top: 10px;
+        .result {
+            margin: 0px 10px 10px 10px;
+            padding: 10px;
+            background-color:#0BBBD7;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 500;
+            .distance-time {
+                display: flex;
+                font-weight: 600;
+                .distance {
+                    width: 50%;
+                    display: flex;
+                    align-items: flex-end;
+                    color: white;
+                    .figure {
+                        font-size: 24px;
+                        line-height: normal;
+                        margin-right: 5px;
+                    }
+                }
+                .time {
+                    width: 30%;
+                }
+                .pace {
+                    width: 20%;
+                }
+                .figure {
+                    color: white;
+                }
+            }
+        }
+        .detail {
+            img {
+                height: 40px;
+                margin:0 10px
+            }
+            .weather {
+                display: flex;
+                align-items: center;
+                border-top: #BFBFBF solid 1px;
+                padding: 5px 0;
+                font-weight: 600;
+                .weather-kind {
+                    margin-right: 10px;
+                }
+            }
+            .strength {
+                display: flex;
+                align-self: center;
+                border-top: #BFBFBF solid 1px;
+                padding: 5px 0;
+                font-weight: 600;
+                .strength-phase {
+                    margin-right: 10px;
+                    display: flex;
+                    align-items: center;
+
+                }
+                .strength-value {
+                    display: flex;
+                    align-self: center;
+                    .square {
+                        width: 25px;
+                        height: 25px;
+                        border: #0BBBD7 solid 1px;
+                        margin-left: 2px;
+                    }
+                    .square-fill {
+                        width: 25px;
+                        height: 25px;
+                        border: #0BBBD7 solid 1px;
+                        background-color: #0BBBD7;
+                        margin-left: 2px;
+                    }
+                }
+                
+            }
+            .thoughts {
+                border-top: #BFBFBF solid 1px;
+                border-bottom: #BFBFBF solid 1px;
+                padding: 10px;
+                font-size: 12px;
+                min-height: 170px
+            }
+            .buttons {
+                display: flex;
+                justify-content: flex-end;
+                padding-right: 5px;
+                a {
+                    margin: 5px;
+                    text-decoration: underline;
+                    text-decoration-color: #BFBFBF;
+                }
+            }
+        }
+    }
+}
