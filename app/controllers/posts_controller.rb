@@ -102,6 +102,10 @@ class PostsController < ApplicationController
         redirect_to("/users/#{@post.user_id}")
     end
 
+    def edit
+        @post = Post.find_by(id: params[:id])
+    end
+
     private
         def post_params
             params.require(:post).permit(
