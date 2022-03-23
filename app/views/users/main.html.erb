@@ -88,9 +88,7 @@
                             <%= post.content %>
                         </div>
                         <div class="buttons">
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                編集
-                            </button>
+                            <%= link_to '編集', edit_post_path(post), remote: true %>
                             <%= link_to("削除", "/posts/#{post.id}/destroy_main", {method: "post"}) %>
                         </div>
                     </div>
@@ -99,10 +97,7 @@
         <% end %>
     </div>
 </div>
-
-<%= render layout: "modal", locals: {
-    class_name: "hello",
-    title: "Hello World",
-    action_name: "Agree"
-    } do %>
-<% end %>
+<div class="new-post">
+    <%= link_to '新規投稿', new_post_path, remote: true, class: "btn btn-lg, btn-primary" %>
+</div>
+<div id="post-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>

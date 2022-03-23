@@ -133,6 +133,16 @@
     }
 }
 
+.new-post {
+    position:fixed;
+    right:50px;
+    bottom:50px;
+    transition:1s;
+    opacity:0.7;
+    &:hover {
+        opacity: 1;
+    }
+}
 /* 練習日誌（月間表示） */
 .practice_diary_header {
     height: 76px;

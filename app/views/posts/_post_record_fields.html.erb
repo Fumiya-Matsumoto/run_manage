@@ -2,27 +2,34 @@
     <div class="result-details">
         <div class="remove">
             <!-- 削除ボタン -->
-            <%= link_to_remove_association "削除", f %>
+            <%= link_to_remove_association "×", f %>
         </div>
         <div class="distance">
             <%= f.number_field :distance, step: "0.1" %>
+            <p>km<p>
         </div>
         <div class="time">
             <div class="time-detail">
-                <div class="hour">
-                    <%= f.number_field :time_hour %>
+                <div class="time-details">
+                    <%= f.number_field :time_hour %>h
                 </div>
-                <div class="minute">
-                    <%= f.number_field :time_minute %>
+                <div class="time-details">
+                    <%= f.number_field :time_minute %>m
                 </div>
-                <div class="second">
-                    <%= f.number_field :time_second %>
+                <div class="time-details">
+                    <%= f.number_field :time_second %>s
                 </div>
             </div>
         </div>
         <div class="type high">
-            <p><%= f.radio_button :record_type, 0 %>疾走</p>
-            <p><%= f.radio_button :record_type, 1 %>リカバリー</p>
+            <p>
+                <%= f.radio_button :record_type, 0, id: "疾走" %>
+                <label for="疾走">疾走</label>
+            </p>
+            <p>
+                <%= f.radio_button :record_type, 1, id: "リカバリー"%>
+                <label for="リカバリー">リカバリー</label>
+            </p>
         </div>
     </div>
 </div>
