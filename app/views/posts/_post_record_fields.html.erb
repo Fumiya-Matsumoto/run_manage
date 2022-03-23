@@ -5,8 +5,12 @@
             <%= link_to_remove_association "×", f %>
         </div>
         <div class="distance">
-            <%= f.number_field :distance, step: "0.1" %>
-            <p>km<p>
+            <% if f.number_field :distance_km %>
+                <%= f.number_field :distance_km, step: "0.1" %>
+                <p>km<p>
+            <% else %>
+                <%= f.number_field :distance_m, step: "0.1" %>
+            <% end %>
         </div>
         <div class="time">
             <div class="time-detail">
