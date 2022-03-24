@@ -58,7 +58,7 @@ class PostsController < ApplicationController
         post_params = params.require(:post).permit(
         :practice_timezone, :weather, :place, :kind_of_practice, 
         :strength, :content, :practice_day,
-        post_records_attributes:[:distance_km, :distance_m, :time, :time_hour, :time_minute, :time_second, :record_type, :pace_minute, :pace_second, :pace_undersecond, :pace]
+        post_records_attributes:[:distance_km, :distance_m, :time, :time_hour, :time_minute, :time_second, :record_type, :pace_minute, :pace_second, :pace_undersecond, :pace, :distance]
         ).merge(user_id: current_user.id)
 
         @post = Post.create(post_params) # createだとsaveまでしちゃってる？

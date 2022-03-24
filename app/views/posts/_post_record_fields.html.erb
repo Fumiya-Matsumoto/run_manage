@@ -5,12 +5,12 @@
             <%= link_to_remove_association "×", f %>
         </div>
         <div class="distance">
-            <% if f.number_field :distance_km %>
-                <%= f.number_field :distance_km, step: "0.1" %>
-                <p>km<p>
+            <% if f.number_field :distance %>
+                <%= f.number_field :distance, step: "0.1" %>
+                <p class="distance-text">km<p>
             <% else %>
-                <%= f.number_field :distance_m, step: "0.1" %>
-                <p>m</p>
+                <%= f.number_field :distance, step: "0.1" %>
+                <p class="distance-text">m</p>
             <% end %>
         </div>
         <div class="time">
@@ -38,3 +38,30 @@
         </div>
     </div>
 </div>
+
+<script>
+$(function(){
+    var switchOption = $('[name="post[kind_of_practice]"]');
+    var switchItems = $('.results');
+    var switchItem = $('.type');
+    switchItem.hide();
+    switchOption.on('change', function(){
+        var option = $('[name="post[kind_of_practice]"]').val();
+        if (option === "レスト"){
+            switchItems.hide();
+        }else if (option === "インターバル" || option === "レペティション"){
+            switchItems.show();
+            switchItem.show();
+            $('.distance-text').text('m');
+        }else{
+            switchItems.show();
+            switchItem.hide();
+            if (option === "ジョグ" || option === "距離走"){
+                $('.distance-text').text('km');
+            }else{
+                $('.distance-text').text('m');
+            }
+        }
+    });
+});
+</script>
