@@ -58,7 +58,7 @@ class PostsController < ApplicationController
         post_params = params.require(:post).permit(
         :practice_timezone, :weather, :place, :kind_of_practice, 
         :strength, :content, :practice_day,
-        post_records_attributes:[:distance_km, :distance_m, :time, :time_hour, :time_minute, :time_second, :record_type, :pace_minute, :pace_second, :pace_undersecond, :pace]
+        post_records_attributes:[:distance_km, :distance_m, :time, :time_hour, :time_minute, :time_second, :record_type, :pace_minute, :pace_second, :pace_undersecond, :pace, :distance]
         ).merge(user_id: current_user.id)
 
         @post = Post.create(post_params) # createだとsaveまでしちゃってる？
@@ -104,6 +104,70 @@ class PostsController < ApplicationController
 
     def edit
         @post = Post.find_by(id: params[:id])
+    end
+
+    def update
+        # params[:post][:post_records_attributes].each do |num, hash|
+        #     # タイムが未記入の箇所は0で補う
+        #     if not hash[:time_hour]
+        #         params[:post][:post_records_attributes][num][:time_hour] = 0
+        #     end
+        #     if not hash[:time_minute]
+        #         params[:post][:post_records_attributes][num][:time_hour] = 0
+        #     end
+        #     if not hash[:time_second]
+        #         params[:post][:post_records_attributes][num][:time_hour] = 0
+        #     end
+
+        #     # 入力値をint型に変換
+        #     params[:post][:post_records_attributes][num][:time_hour] = 
+        #     params[:post][:post_records_attributes][num][:time_hour].to_f
+        #     params[:post][:post_records_attributes][num][:time_minute] = 
+        #     params[:post][:post_records_attributes][num][:time_minute].to_f
+        #     params[:post][:post_records_attributes][num][:time_second] = 
+        #     params[:post][:post_records_attributes][num][:time_second].to_f
+
+        #     # レスト以外ではペースを計算する
+        #     if not params[:post][:kind_of_practice] == "レスト"
+        #         total_seconds = 
+        #             3600 * params[:post][:post_records_attributes][num][:time_hour] + 
+        #             60 * params[:post][:post_records_attributes][num][:time_minute] + 
+        #             params[:post][:post_records_attributes][num][:time_second]
+
+        #         params[:post][:post_records_attributes][num][:time] = total_seconds
+
+        #         # distance_km、distance_m問題が解決したら以下のif文は直す
+        #         if params[:post][:kind_of_practice] == "ペース走" or params[:post][:kind_of_practice] == "ビルドアップ" or params[:post][:kind_of_practice] == "インターバル" or params[:post][:kind_of_practice] == "レペティション" or params[:post][:kind_of_practice] == "レース"
+        #             params[:post][:post_records_attributes][num][:distance_m] = params[:post][:post_records_attributes][num][:distance].to_f
+        #             params[:post][:post_records_attributes][num][:distance_km] = params[:post][:post_records_attributes][num][:distance].to_f / 1000
+        #             pace = total_seconds / (params[:post][:post_records_attributes][num][:distance_km])
+        #         else
+        #             params[:post][:post_records_attributes][num][:distance_km] = params[:post][:post_records_attributes][num][:distance].to_f
+        #             params[:post][:post_records_attributes][num][:distance_m] = params[:post][:post_records_attributes][num][:distance].to_f * 1000
+        #             pace = total_seconds / params[:post][:post_records_attributes][num][:distance_km]
+        #         end
+
+        #         pace_minute = pace.div(60)
+        #         pace_second = pace % 60
+        #         pace_undersecond = pace - pace.to_f
+        #         params[:post][:post_records_attributes][num][:pace] = pace
+        #         params[:post][:post_records_attributes][num][:pace_minute] = pace_minute
+        #         params[:post][:post_records_attributes][num][:pace_second] = pace_second
+        #         params[:post][:post_records_attributes][num][:pace_undersecond] = pace_undersecond
+        #     end
+        # end
+
+        post_params = params.require(:post).permit(
+        :practice_timezone, :weather, :place, :kind_of_practice, 
+        :strength, :content, :practice_day,
+        post_records_attributes:[:distance_km, :distance_m, :time, :time_hour, :time_minute, :time_second, :record_type, :pace_minute, :pace_second, :pace_undersecond, :pace, :distance]
+        ).merge(user_id: current_user.id)
+
+        @post = Post.find_by(id: params[:id])
+        @post.update(post_params)
+
+        redirect_to("/users/#{current_user.id}")
+
     end
 
     private

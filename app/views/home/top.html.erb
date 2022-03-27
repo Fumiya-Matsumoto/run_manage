@@ -12,14 +12,14 @@
     <header>
       <div class="header-logo">
         <%= link_to "/" do %>
-          <%= image_tag "/assets/logo.png" %>
+          <%= image_tag "logo.png" %>
         <% end %>
       </div>
       <ul class="header-menus">
         <% if user_signed_in? %>
           <li>
             <%= link_to "/" do %>
-              <%= image_tag "/assets/user_icon.svg" %>
+              <%= image_tag "user_icon.svg" %>
             <% end %>
           </li>
           <li>
@@ -37,7 +37,7 @@
     </header>
     <div class="top">
         <div class="mainvisual">
-            <img src="/assets/mainvisual.png" alt="">
+            <%= image_tag "mainvisual.png" %>
             <div class="button">
                 <!-- <a href="">SIGN UP</a> -->
                 <%= link_to("SIGN UP", "/users/sign_up") %>
