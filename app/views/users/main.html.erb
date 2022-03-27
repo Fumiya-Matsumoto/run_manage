@@ -68,12 +68,12 @@
                     </div>
                     <div class="detail">
                         <div class="weather">
-                            <%= image_tag "/assets/weather-icon.svg" %>
+                            <%= image_tag "weather-icon.svg" %>
                             <p class="weather-kind">天気</p>
                             <p><%= post.weather %></p>
                         </div>
                         <div class="strength">
-                            <%= image_tag "/assets/strength-icon.svg" %>
+                            <%= image_tag "strength-icon.svg" %>
                             <p class="strength-phase">強度</p>
                             <div class="strength-value">
                             <% for i in 1..post.strength.to_i %>
