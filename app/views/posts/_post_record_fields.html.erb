@@ -2,27 +2,66 @@
     <div class="result-details">
         <div class="remove">
             <!-- 削除ボタン -->
-            <%= link_to_remove_association "削除", f %>
+            <%= link_to_remove_association "×", f %>
         </div>
         <div class="distance">
-            <%= f.number_field :distance_km, step: "0.1" %>
+            <% if f.number_field :distance %>
+                <%= f.number_field :distance, step: "0.1" %>
+                <p class="distance-text">km<p>
+            <% else %>
+                <%= f.number_field :distance, step: "0.1" %>
+                <p class="distance-text">m</p>
+            <% end %>
         </div>
         <div class="time">
             <div class="time-detail">
-                <div class="hour">
-                    <%= f.number_field :time_hour %>
+                <div class="time-details">
+                    <%= f.number_field :time_hour %>h
                 </div>
-                <div class="minute">
-                    <%= f.number_field :time_minute %>
+                <div class="time-details">
+                    <%= f.number_field :time_minute %>m
                 </div>
-                <div class="second">
-                    <%= f.number_field :time_second %>
+                <div class="time-details">
+                    <%= f.number_field :time_second %>s
                 </div>
             </div>
         </div>
         <div class="type high">
-            <p><%= f.radio_button :record_type, 0 %>疾走</p>
-            <p><%= f.radio_button :record_type, 1 %>リカバリー</p>
+            <p>
+                <%= f.radio_button :record_type, 0, id: "疾走" %>
+                <label for="疾走">疾走</label>
+            </p>
+            <p>
+                <%= f.radio_button :record_type, 1, id: "リカバリー"%>
+                <label for="リカバリー">リカバリー</label>
+            </p>
         </div>
     </div>
 </div>
+
+<script>
+$(function(){
+    var switchOption = $('[name="post[kind_of_practice]"]');
+    var switchItems = $('.results');
+    var switchItem = $('.type');
+    switchItem.hide();
+    switchOption.on('change', function(){
+        var option = $('[name="post[kind_of_practice]"]').val();
+        if (option === "レスト"){
+            switchItems.hide();
+        }else if (option === "インターバル" || option === "レペティション"){
+            switchItems.show();
+            switchItem.show();
+            $('.distance-text').text('m');
+        }else{
+            switchItems.show();
+            switchItem.hide();
+            if (option === "ジョグ" || option === "距離走"){
+                $('.distance-text').text('km');
+            }else{
+                $('.distance-text').text('m');
+            }
+        }
+    });
+});
+</script>

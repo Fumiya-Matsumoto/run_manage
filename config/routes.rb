@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   resources :users, only:[:index]
   get "users/:id" => "users#main"
   get "users/:id/:year/:month" => "users#show"
-  get "posts/new" => "posts#new"
-  post "posts/create" => "posts#create"
+  get "users/index" => "users#index"
+  resources :posts
   post "posts/:id/destroy_show" => "posts#destroy_show"
   post "posts/:id/destroy_main" => "posts#destroy_main"
   root 'home#top'

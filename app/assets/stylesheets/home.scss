@@ -110,7 +110,7 @@
         }
         a {
             font-size: 13px;
-            color: #545454;
+            color: #545454 !important;
             display: flex;
             align-items: center;
         }
@@ -243,4 +243,14 @@ nav {
             }
         }
     }
+}
+
+//   フラッシュ
+.flash {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #0BBBD7;
+    color: white;
+    font-weight: 600;
 }

@@ -1,0 +1,94 @@
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <%= form_with(model: @post, remote: true) do |form| %>
+    <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <ul>
+        <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+    <div class="modal-header">
+        <div class="days-and-time">
+            <div class="days">
+                <%= raw sprintf(
+                    form.date_select(
+                        :practice_day,
+                        use_month_numbers: true,
+                        default: Date.today,
+                        date_separator: '/'
+                    ),
+                    '年 ', '月 '
+                ) + '日' %>
+            </div>
+            <div class="timezone">
+                <%= form.select :practice_timezone, [ ["朝","朝"], ["午前", "午前"], ["午後", "午後"]], prompt: "---" %>
+            </div>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group field">
+        <div class="detail">
+            <div class="kind_of_practice">
+                <%= image_tag "weather-icon.svg" %>
+                <p class="practice-menu">練習</p>
+                <%= form.select :kind_of_practice, [ ["ジョグ","ジョグ"], ["ペース走", "ペース走"], ["インターバル", "インターバル"], ["レペティション", "レペティション"], ["ビルドアップ", "ビルドアップ"], ["距離走", "距離走"], ["レース", "レース"], ["レスト", "レスト"] ], prompt: "---" %>
+            </div>
+            <div class="situation">
+                <div class="weather">
+                    <%= image_tag "weather-icon.svg" %>
+                    <p class="weather-kind">天気</p>
+                    <%= form.select :weather, [ ["晴れ","晴れ"], ["曇り", "曇り"], ["雨", "雨"], ["雪", "雪"]], prompt: "---" %>
+                </div>
+                <div class="place">
+                    <%= image_tag "weather-icon.svg" %>
+                    <p class="place-kind">場所</p>
+                    <%= form.select :place, [ ["ロード","ロード"], ["トラック", "トラック"], ["クロカン", "クロカン"]], prompt: "---" %>
+                </div>
+            </div>
+            
+            <div class="strength">
+                <%= image_tag "strength-icon.svg" %>
+                <p class="strength-phase">強度</p>
+                <%= form.select :strength, [ ["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]], prompt: "---" %>
+            </div>
+        </div>
+        <div class="results">
+            <div class="result">
+                <%= form.fields_for :post_records do |form_| %>
+                    <%= render "post_record_fields", f: form_ %>
+                <% end %>
+            </div>
+            <div id="detail-association-insertion-point"></div>
+            <div class="add-botton-box">
+                <%= link_to_add_association "追加", form, :post_records,
+                    class: 'add_fields',
+                    id: 'add-btn',
+                    data: {
+                        association_insertion_node: '#detail-association-insertion-point',
+                        association_insertion_method: 'after'
+                    }
+                %>
+            </div>
+        </div>
+        <div class="thoughts">
+            <h3>感想</h3>
+            <div class="content">
+                <div class="FlexTextarea">
+                    <div class="FlexTextarea__dummy" aria-hidden="true"></div>
+                    <%= form.text_area :content, class: "FlexTextarea__textarea", id: "FlexTextarea" %>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer actions">
+      <%= form.submit "保存",class: "save-btn"%>
+    </div>
+    <% end %>
+  </div>
+</div>

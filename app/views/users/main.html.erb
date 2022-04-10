@@ -15,14 +15,14 @@
                             <div class="distance-time">
                                 <div class="distance">
                                     <span class="figure">
-                                        <%= post.post_records.where(record_type: 0)[0].distance_km %>
+                                        <%= post.post_records.where(record_type: 0)[0].distance_m %>
                                     </span>
                                     <span>m</span>
                                 </div>
                                 <div class="time">
                                     <p>平均タイム</p>
                                     <p class="figure">
-                                        <%= post.time_s.div(60) %>:<%= post.time_s % 60 %>
+                                        <%= post.time_s.div(60) %>:<%= (post.time_s % 60).round(1) %>
                                     </p>
                                 </div>
                                 <div class="pace">
@@ -33,14 +33,14 @@
                             <div class="distance-time">
                                 <div class="distance">
                                     <span class="figure">
-                                        <%= post.post_records.where(record_type: 1)[0].distance_km %>
+                                        <%= post.post_records.where(record_type: 1)[0].distance_m %>
                                     </span>
                                     <span>m</span>
                                 </div>
                                 <div class="time">
                                     <p>平均タイム</p>
                                     <p class="figure">
-                                        <%= post.time_r.div(60) %>:<%= post.time_r % 60 %>
+                                        <%= post.time_r.div(60) %>:<%= (post.time_r).round(1) % 60 %>
                                     </p>
                                 </div>
                             </div>
@@ -68,12 +68,12 @@
                     </div>
                     <div class="detail">
                         <div class="weather">
-                            <%= image_tag "/assets/weather-icon.svg" %>
+                            <%= image_tag "weather-icon.svg" %>
                             <p class="weather-kind">天気</p>
                             <p><%= post.weather %></p>
                         </div>
                         <div class="strength">
-                            <%= image_tag "/assets/strength-icon.svg" %>
+                            <%= image_tag "strength-icon.svg" %>
                             <p class="strength-phase">強度</p>
                             <div class="strength-value">
                             <% for i in 1..post.strength.to_i %>
@@ -88,7 +88,7 @@
                             <%= post.content %>
                         </div>
                         <div class="buttons">
-                            <%= link_to("編集", "/posts/#{post.id}/edit") %>
+                            <%= link_to '編集', edit_post_path(post), remote: true %>
                             <%= link_to("削除", "/posts/#{post.id}/destroy_main", {method: "post"}) %>
                         </div>
                     </div>
@@ -97,8 +97,7 @@
         <% end %>
     </div>
 </div>
-<script>
-    $(function() {
-        $('.thoughts').matchHeight();
-    });
-</script>
+<div class="new-post">
+    <%= link_to '新規投稿', new_post_path, remote: true, class: "btn btn-lg, btn-primary" %>
+</div>
+<div id="post-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
