@@ -1,0 +1,35 @@
+<div>
+    <div>
+        <div class="distance">
+            <h3>月間走行距離</h3>
+            <div class="time_unit">
+                時間間隔:1ヶ月
+            </div>
+            <div class="distance_graph">
+                <canvas id="distance_graph" width="200" height="100"></canvas>
+            </div>
+        </div>
+        <div class="practice_rate"></div>
+    </div>
+    <div>
+        <div class="race_result"></div>
+        <div class="profile"></div>
+    </div>
+</div>
+
+<script> 
+    var ctx = document.getElementById("distance_graph").getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: <%= @distance_labels %>,
+            datasets: [{
+                label: "走行距離",
+                data: [300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300],
+                backgroundColor: 'rgba(255, 80, 120, 1.0)',
+                borderColor: 'rgba(255, 80, 120, 1.0)',
+                fill: false
+            }]
+        },
+    });
+</script>
