@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_21_022640) do
+ActiveRecord::Schema.define(version: 2022_04_13_064933) do
+
+  create_table "objectives", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "year"
+    t.integer "month"
+    t.string "content"
+    t.text "todo_content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "post_records", force: :cascade do |t|
     t.integer "post_id"
@@ -68,6 +78,13 @@ ActiveRecord::Schema.define(version: 2022_03_21_022640) do
 
   create_table "recipes", force: :cascade do |t|
     t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "objective"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
