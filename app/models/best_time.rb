@@ -1,0 +1,2 @@
+class BestTime < ApplicationRecord
+end
