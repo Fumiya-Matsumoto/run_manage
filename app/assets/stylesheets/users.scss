@@ -380,3 +380,113 @@
         }
     }
 }
+
+/* マイページ */
+.main-box {
+    .mypage {
+        margin: 40px;
+        .practice_analysis {
+            display: flex;
+            margin-bottom: 20px;
+            .distance {
+                width: 66%;
+                padding: 25px;
+                margin: 10px;
+                box-shadow: 0 0 8px grey;
+                border-radius: 7px;
+                h3 {
+                    font-size: 20px;
+                    font-weight: 600;
+                }
+                .time_unit {
+                    text-align: end;
+                    margin-bottom: 10px;
+                }
+            }
+            .practice_rate {
+                width: 34%;
+                padding: 25px;
+                margin: 10px;
+                box-shadow: 0 0 8px grey;
+                border-radius: 7px;
+                h3 {
+                    font-size: 20px;
+                    font-weight: 600;
+                }
+                .time_unit {
+                    text-align: end;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+        .other_information {
+            display: flex;
+            .race_result {
+                width: 50%;
+                padding: 25px;
+                margin: 10px;
+                box-shadow: 0 0 8px grey;
+                border-radius: 7px;
+                h3 {
+                    font-size: 20px;
+                    font-weight: 600;
+                }
+                .time_unit {
+                    text-align: end;
+                    margin-bottom: 10px;
+                }
+            }
+            .profile {
+                width: 50%;
+                padding: 25px;
+                margin: 10px;
+                box-shadow: 0 0 8px grey;
+                border-radius: 7px;
+                h3 {
+                    font-size: 20px;
+                    font-weight: 600;
+                }
+                .bio {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-flow: column;
+                    padding: 20px 20px 5px 20px;
+                    .user_icon {
+                        width: 150px;
+                        height: 150px;
+                        margin-bottom: 10px;
+                    }
+                    .name {
+                        font-size: 18px;
+                        font-weight: 600;
+                    }
+                    .belongs {
+                        text-align: center;
+                        font-size: 14px;
+                        color: grey;
+                    }
+                }
+                .basic_information {
+                    margin: 5px 30px;
+                    border-top: grey 1px solid;
+                    padding: 10px 0;
+                    p {
+                        font-weight: 600;
+                        margin-bottom: 5px;
+                    }
+                }
+                .best_time {
+                    margin: 5px 30px 10px;
+                    border-top: grey 1px solid;
+                    border-bottom: grey 1px solid;
+                    padding: 10px 0;
+                    p {
+                        font-weight: 600;
+                        margin-bottom: 5px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,19 +1,79 @@
-<div>
-    <div>
+<div class="mypage">
+    <div class="practice_analysis">
         <div class="distance">
             <h3>月間走行距離</h3>
             <div class="time_unit">
-                時間間隔:1ヶ月
+                年:2022
             </div>
             <div class="distance_graph">
                 <canvas id="distance_graph" width="200" height="100"></canvas>
             </div>
         </div>
-        <div class="practice_rate"></div>
+        <div class="practice_rate">
+            <h3>練習の割合</h3>
+            <div class="time_unit">
+                年/月:2022/3
+            </div>
+            <div class="kind_practice_rate">
+                <canvas id="kind_practice_rate" width="100" height="100"></canvas>
+            </div>
+        </div>
     </div>
-    <div>
-        <div class="race_result"></div>
-        <div class="profile"></div>
+    <div class="other_information">
+        <div class="race_result">
+            <h3>レース結果</h3>
+            <div class="time_unit">
+                年:2022
+            </div>
+            <div class="results-box">
+                <div class="header">
+                </div>
+                <div class="results">
+                    <div class="result"></div>
+                </div>
+            </div>
+        </div>
+        <div class="profile">
+            <h3>プロフィール</h3>
+            <div class="bio">
+                <%= image_tag "user_icon.svg", class: "user_icon" %>
+                <p class="name">陸上 太郎</p>
+                <div class="belongs">
+                    <p>東大陸上部</p>
+                    <p>長野マラソンクラブ</p>
+                </div>
+            </div>
+            <div class="basic_information">
+                <p>基本情報</p>
+                <div class="age">
+                    年齢
+                </div>
+                <div class="sex">
+                    性別
+                </div>
+                <div class="height">
+                    身長
+                </div>
+                <div class="weight">
+                    体重
+                </div>
+            </div>
+            <div class="best_time">
+                <p>自己ベスト</p>
+                <div class="5000">
+                    5000m
+                </div>
+                <div class="10000">
+                    10000m
+                </div>
+                <div class="half">
+                    ハーフマラソン
+                </div>
+                <div class="full">
+                    フルマラソン
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -25,11 +85,42 @@
             labels: <%= @distance_labels %>,
             datasets: [{
                 label: "走行距離",
-                data: [300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300],
-                backgroundColor: 'rgba(255, 80, 120, 1.0)',
-                borderColor: 'rgba(255, 80, 120, 1.0)',
+                data: <%= chartdatas(@posts, 2022) %>,
+                backgroundColor: '#0BBBD7',
+                borderColor: '#0BBBD7',
                 fill: false
             }]
         },
+        options: {
+            legend: {
+                display: false
+            }
+        }
+    });
+
+    var ctx2 = document.getElementById("kind_practice_rate");
+    var myPieChart = new Chart(ctx2, {
+        type: 'pie',
+        data: {
+        labels: ["ジョグ", "ペース走", "ビルドアップ", "距離走", "インターバル", "レペティション", "レース", "レスト"], 
+        datasets: [{
+            backgroundColor: [
+                "#0BBBD7",
+                "#29919D",
+                "#97CCAF",
+                "#B3875F",
+                "#EDC09D",
+                "#EBB65F",
+                "#E1C870",
+                "#EEEEEE"
+            ],
+            data: <%= calc_rate_practice(@posts, 2022, 3) %>
+        }]
+        },
+        options: {
+            legend: {
+                position: "bottom",
+            }
+        }
     });
 </script>
