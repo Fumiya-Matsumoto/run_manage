@@ -50,7 +50,7 @@
                     <%= form.select :place, [ ["ロード","ロード"], ["トラック", "トラック"], ["クロカン", "クロカン"]], prompt: "---" %>
                 </div>
             </div>
-            
+
             <div class="strength">
                 <%= image_tag "strength-icon.svg" %>
                 <p class="strength-phase">強度</p>
@@ -70,7 +70,7 @@
                     id: 'add-btn',
                     data: {
                         association_insertion_node: '#detail-association-insertion-point',
-                        association_insertion_method: 'after'
+                        association_insertion_method: 'append'
                     }
                 %>
             </div>
@@ -92,3 +92,33 @@
     <% end %>
   </div>
 </div>
+
+<script>
+  const practiceToText = (text) => {
+      switch(text) {
+          case 'ジョグ':
+          case 'ペース走':
+            return 'km';
+          case 'インターバル':
+          case '距離走':
+            return 'm';
+          default:
+            return 'km';
+        }
+  }
+  let isAppendChild = false;
+
+  $('#post_kind_of_practice').on('change', () => {
+    if (isAppendChild) return;
+    const selectedPractice = $('#post_kind_of_practice').val();
+    $('.distance-text').last().text(practiceToText($('[name="post[kind_of_practice]"]').val()));
+  });
+
+  $('.results').on('cocoon:before-insert', (e, insertedItem, originalEvent) => {
+     isAppendChild = true;
+     const practice = $('[name="post[kind_of_practice]"]').val();
+     setTimeout(() => {
+       $('.distance-text').last().text(practiceToText($('[name="post[kind_of_practice]"]').val()));
+     }, 200);
+  });
+</script>
