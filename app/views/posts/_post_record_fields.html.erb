@@ -5,13 +5,8 @@
             <%= link_to_remove_association "×", f %>
         </div>
         <div class="distance">
-            <% if f.number_field :distance %>
-                <%= f.number_field :distance, step: "0.1" %>
-                <p class="distance-text">km<p>
-            <% else %>
-                <%= f.number_field :distance, step: "0.1" %>
-                <p class="distance-text">m</p>
-            <% end %>
+          <%= f.number_field :distance, step: "0.1" %>
+          <p class="distance-text">km<p>
         </div>
         <div class="time">
             <div class="time-detail">
@@ -40,7 +35,7 @@
 </div>
 
 <script>
-$(function(){
+$(() => {
     var switchOption = $('[name="post[kind_of_practice]"]');
     var switchOption2 = $('#add-btn');
     var switchItems = $('.results');
@@ -53,18 +48,18 @@ $(function(){
         }else if (option === "インターバル" || option === "レペティション"){
             switchItems.show();
             switchItem.show();
-            $('.distance-text').text('m');
+            // $('.distance-text').text('m');
         }else{
             switchItems.show();
             switchItem.hide();
-            if (option === "ジョグ" || option === "距離走"){
-                $('.distance-text').text('km');
-            }else{
-                $('.distance-text').text('m');
-            }
+            // if (option === "ジョグ" || option === "距離走"){
+            //     $('.distance-text').text('km');
+            // }else{
+            //     $('.distance-text').text('m');
+            // }
         }
     });
-    
+
     switchOption2.onclick = function(){
         var option = $('[name="post[kind_of_practice]"]').val();
         if (option === "レスト"){
@@ -72,15 +67,15 @@ $(function(){
         }else if (option === "インターバル" || option === "レペティション"){
             switchItems.show();
             switchItem.show();
-            $('.distance-text').text('m');
+            // $('.distance-text').text('m');
         }else{
             switchItems.show();
             switchItem.hide();
-            if (option === "ジョグ" || option === "距離走"){
-                $('.distance-text').text('km');
-            }else{
-                $('.distance-text').text('m');
-            }
+            // if (option === "ジョグ" || option === "距離走"){
+            //     $('.distance-text').text('km');
+            // }else{
+            //     $('.distance-text').text('m');
+            // }
         }
     };
 });
