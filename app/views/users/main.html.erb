@@ -98,6 +98,8 @@
     </div>
 </div>
 <div class="new-post">
-    <%= link_to '新規投稿', new_post_path, remote: true, class: "btn btn-lg, btn-primary" %>
+    <%= link_to new_post_path, remote: true, class: "btn btn-lg, btn-primary plus" do %>
+        <p>＋</p>
+    <% end %>
 </div>
 <div id="post-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>

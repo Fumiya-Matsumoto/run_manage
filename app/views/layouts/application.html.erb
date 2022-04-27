@@ -74,10 +74,17 @@
                 <% end %>
             </li>
             <li class="mypage">
+              <% if current_user %>
                 <%= link_to "/users/#{current_user.id}/mypage" do %>
                   <%= image_tag "icon_055100_32.png" %>
                   マイページ
                 <% end %>
+              <% else %>
+                <% link_to "/" do %>
+                  <%= image_tag "icon_055100_32.png" %>
+                  マイページ
+                <% end %>
+              <% end %>
             </li>
         </ul>
     </nav>

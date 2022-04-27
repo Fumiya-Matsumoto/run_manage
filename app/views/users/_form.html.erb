@@ -1,0 +1,68 @@
+<div class="modal-dialog profile-modal" role="document">
+    <div class="modal-content">
+        <%= form_with(model: @user, remote: true) do |form| %>
+        <div class="left">
+            <div class="user_image left-form">
+                <%= image_tag "user_icon.svg", class: "user_icon" %>
+            </div>
+            <div class="name left-form">
+                <p>名前</p>
+                <%= form.text_field :name, class: "text_field" %>
+            </div>
+            <div class="email left-form">
+                <p>メールアドレス</p>
+                <%= form.text_field :email, class: "text_field" %>
+            </div>
+            <div class="age_sex left-form two-row">
+                <div class="age row">
+                    <p>年齢</p>
+                    <%= form.text_field :age, class: "text_field" %>
+                </div>
+                <div class="sex row">
+                    <p>性別</p>
+                    <%= form.text_field :sex, class: "text_field" %>
+                </div>
+            </div>
+            <div class="height_weight left-form two-row">
+                <div class="height row">
+                    <p>身長</p>
+                    <%= form.text_field :height, class: "text_field" %>
+                </div>
+                <div class="weight row">
+                    <p>体重</p>
+                    <%= form.text_field :weight, class: "text_field" %>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <h3>自己ベスト</h3>
+            <div class="times">
+                <div class="800 time"></div>
+                <div class="1000 time"></div>
+            </div>
+            <div class="times">
+                <div class="1500 time"></div>
+                <div class="3000 time"></div>
+            </div>
+            <div class="times">
+                <div class="5000 time"></div>
+                <div class="10000 time"></div>
+            </div>
+            <div class="times">
+                <div class="3000sc time"></div>
+            </div>
+            <div class="times">
+                <div class="5k time"></div>
+                <div class="10k time"></div>
+            </div>
+            <div class="times">
+                <div class="half time"></div>
+            </div>
+            <div class="times">
+                <div class="marathon time"></div>
+            </div>
+
+        </div>
+        <% end %>
+    </div>
+</div>
