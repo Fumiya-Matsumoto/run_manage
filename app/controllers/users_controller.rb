@@ -22,6 +22,10 @@ class UsersController < ApplicationController
       @posts  = Post.where(user_id: @user.id)
     end
 
+    def edit
+      @user = User.find_by(id: params[:id])
+    end
+
     private
 
     def month_distance(posts, year, month)

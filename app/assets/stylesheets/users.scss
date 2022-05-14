@@ -511,36 +511,93 @@
         }
     }
 }
-.profile-modal {
-    max-width: 1000px;
-}
+
 
 /* モーダル */
-.modal-content {
-    .left {
-        width: 45%;
-        padding: 30px;
-        .left-form {
-            p {
-                margin-bottom: 10px;
+.profile-modal {
+    max-width: 1000px;
+    .modal-content {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        form {
+            .edit-view {
+                display: flex;
+                .left {
+                    width: 45%;
+                    padding: 30px;
+                    .left-form {
+                        p {
+                            margin-bottom: 10px;
+                        }
+                        margin-bottom: 10px;
+                        .text_field {
+                            width: 100%;
+                        }
+                    }
+                    .user_image {
+                        text-align: center;
+                    }
+                    .two-row {
+                        display: flex;
+                        align-items: center;
+                        justify-content: content;
+                        .one-row {
+                            width: 50%;
+                        }
+                        .age {
+                            margin-right: 10px;
+                        }
+                        .height {
+                            margin-right: 10px;
+                        }
+                    }
+                }
+                .right {
+                    width: 55%;
+                    padding: 30px;
+                    .times {
+                        p {
+                            margin-bottom: 10px;
+                        }
+                        margin-bottom: 10px;
+                        .text_field {
+                            width: 50px;
+                            margin-right: 5px;
+                        }
+                    }
+                    .self-best {
+                        font-size: 18px;
+                        margin-bottom: 10px;
+                    }
+                    .two-row {
+                        display: flex;
+                        align-items: center;
+                        justify-content: content;
+                        .one-row {
+                            width: 50%;
+                        }
+                        .age {
+                            margin-right: 10px;
+                        }
+                        .height {
+                            margin-right: 10px;
+                        }
+                    }
+                }
             }
-            margin-bottom: 10px;
-            .text_field {
-                width: 100%;
+            .modal-footer {
+                border-top: none;
+                .save-btn {
+                  margin: 0 30px;
+                  color: #0BBBD7;
+                  font-size: 14px;
+                  font-weight: 600;
+                  border-radius: 5px;
+                  width: 100px;
+                  background: white;
+                  border: 1px solid #0BBBD7;
+                }
             }
         }
-        .two-row {
-            display: flex;
-            align-items: center;
-            justify-content: content;
-            .row {
-                width: 50%;
-            }
-
-        }
-    }
-    .right {
-        width: 55%;
-
     }
 }

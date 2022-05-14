@@ -1,68 +1,127 @@
 <div class="modal-dialog profile-modal" role="document">
-    <div class="modal-content">
-        <%= form_with(model: @user, remote: true) do |form| %>
-        <div class="left">
-            <div class="user_image left-form">
-                <%= image_tag "user_icon.svg", class: "user_icon" %>
-            </div>
-            <div class="name left-form">
-                <p>名前</p>
-                <%= form.text_field :name, class: "text_field" %>
-            </div>
-            <div class="email left-form">
-                <p>メールアドレス</p>
-                <%= form.text_field :email, class: "text_field" %>
-            </div>
-            <div class="age_sex left-form two-row">
-                <div class="age row">
-                    <p>年齢</p>
-                    <%= form.text_field :age, class: "text_field" %>
+    <div class="modal-content">    
+        <%= form_with(model: @user, remote: true, url: users_path) do |form| %>
+            <div class="edit-view">
+                <div class="left">
+                    <div class="user_image left-form">
+                        <%= image_tag "user_icon.svg", class: "user_icon" %>
+                    </div>
+                    <div class="name left-form">
+                        <p>名前</p>
+                        <%= form.text_field :name, class: "text_field" %>
+                    </div>
+                    <div class="email left-form">
+                        <p>メールアドレス</p>
+                        <%= form.text_field :email, class: "text_field" %>
+                    </div>
+                    <div class="age_sex left-form two-row">
+                        <div class="age one-row">
+                            <p>年齢</p>
+                            <%= form.text_field :age, class: "text_field" %>
+                        </div>
+                        <div class="sex one-row">
+                            <p>性別</p>
+                            <%= form.text_field :sex, class: "text_field" %>
+                        </div>
+                    </div>
+                    <div class="height_weight left-form two-row">
+                        <div class="height one-row">
+                            <p>身長</p>
+                            <%= form.text_field :height, class: "text_field" %>
+                        </div>
+                        <div class="weight one-row">
+                            <p>体重</p>
+                            <%= form.text_field :weight, class: "text_field" %>
+                        </div>
+                    </div>
                 </div>
-                <div class="sex row">
-                    <p>性別</p>
-                    <%= form.text_field :sex, class: "text_field" %>
+                <div class="right">
+                    <h3 class="self-best">自己ベスト</h3>
+                    <div class="times two-row">
+                        <div class="800 time one-row">
+                            <p>800m</p>
+                            <%= form.text_field :min_800, class: "text_field" %>分
+                            <%= form.text_field :sec_800, class: "text_field" %>秒
+                            <%= form.text_field :msec_800, class: "text_field" %>
+                        </div>
+                        <div class="1000 time one-row">
+                            <p>1000m</p>
+                            <%= form.text_field :min_1000, class: "text_field" %>分
+                            <%= form.text_field :sec_1000, class: "text_field" %>秒
+                            <%= form.text_field :msec_1000, class: "text_field" %>
+                        </div>
+                    </div>
+                    <div class="times two-row">
+                        <div class="1500 time one-row">
+                            <p>1500m</p>
+                            <%= form.text_field :min_1500, class: "text_field" %>分
+                            <%= form.text_field :sec_1500, class: "text_field" %>秒
+                            <%= form.text_field :msec_1500, class: "text_field" %>
+                        </div>
+                        <div class="3000 time one-row">
+                            <p>3000m</p>
+                            <%= form.text_field :min_3000, class: "text_field" %>分
+                            <%= form.text_field :sec_3000, class: "text_field" %>秒
+                            <%= form.text_field :msec_3000, class: "text_field" %>
+                        </div>
+                    </div>
+                    <div class="times two-row">
+                        <div class="5000 time one-row">
+                            <p>5000m</p>
+                            <%= form.text_field :min_5000, class: "text_field" %>分
+                            <%= form.text_field :sec_5000, class: "text_field" %>秒
+                            <%= form.text_field :msec_5000, class: "text_field" %>
+                        </div>
+                        <div class="10000 time one-row">
+                            <p>10000m</p>
+                            <%= form.text_field :min_10000, class: "text_field" %>分
+                            <%= form.text_field :sec_10000, class: "text_field" %>秒
+                            <%= form.text_field :msec_10000, class: "text_field" %>
+                        </div>
+                    </div>
+                    <div class="times two-row">
+                        <div class="3000sc time">
+                            <p>3000msc</p>
+                            <%= form.text_field :min_3000sc, class: "text_field" %>分
+                            <%= form.text_field :sec_3000sc, class: "text_field" %>秒
+                            <%= form.text_field :msec_3000sc, class: "text_field" %>
+                        </div>
+                    </div>
+                    <div class="times two-row">
+                        <div class="5k time one-row">
+                            <p>5km</p>
+                            <%= form.text_field :min_5k, class: "text_field" %>分
+                            <%= form.text_field :sec_5k, class: "text_field" %>秒
+                            <%= form.text_field :msec_5k, class: "text_field" %>
+                        </div>
+                        <div class="10k time one-row">
+                            <p>10km</p>
+                            <%= form.text_field :min_10k, class: "text_field" %>分
+                            <%= form.text_field :sec_10k, class: "text_field" %>秒
+                            <%= form.text_field :msec_10k, class: "text_field" %>
+                        </div>
+                    </div>
+                    <div class="times">
+                        <div class="half time">
+                            <p>ハーフマラソン</p>
+                            <%= form.text_field :min_half, class: "text_field" %>時間
+                            <%= form.text_field :sec_half, class: "text_field" %>分
+                            <%= form.text_field :msec_half, class: "text_field" %>秒
+                        </div>
+                    </div>
+                    <div class="times">
+                        <div class="marathon time">
+                            <p>マラソン</p>
+                            <%= form.text_field :min_marathon, class: "text_field" %>時間
+                            <%= form.text_field :sec_marathon, class: "text_field" %>分
+                            <%= form.text_field :msec_marathon, class: "text_field" %>秒
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="height_weight left-form two-row">
-                <div class="height row">
-                    <p>身長</p>
-                    <%= form.text_field :height, class: "text_field" %>
-                </div>
-                <div class="weight row">
-                    <p>体重</p>
-                    <%= form.text_field :weight, class: "text_field" %>
-                </div>
+            <div class="modal-footer actions">
+                <%= form.submit "保存",class: "save-btn"%>
             </div>
-        </div>
-        <div class="right">
-            <h3>自己ベスト</h3>
-            <div class="times">
-                <div class="800 time"></div>
-                <div class="1000 time"></div>
-            </div>
-            <div class="times">
-                <div class="1500 time"></div>
-                <div class="3000 time"></div>
-            </div>
-            <div class="times">
-                <div class="5000 time"></div>
-                <div class="10000 time"></div>
-            </div>
-            <div class="times">
-                <div class="3000sc time"></div>
-            </div>
-            <div class="times">
-                <div class="5k time"></div>
-                <div class="10k time"></div>
-            </div>
-            <div class="times">
-                <div class="half time"></div>
-            </div>
-            <div class="times">
-                <div class="marathon time"></div>
-            </div>
-
-        </div>
         <% end %>
     </div>
 </div>
