@@ -1,6 +1,6 @@
 <div class="modal-dialog profile-modal" role="document">
     <div class="modal-content">    
-        <%= form_with(model: @user, remote: true, url: users_path) do |form| %>
+        <%= form_with(model: @user, remote: true) do |form| %>
             <div class="edit-view">
                 <div class="left">
                     <div class="user_image left-form">
@@ -40,15 +40,17 @@
                     <div class="times two-row">
                         <div class="800 time one-row">
                             <p>800m</p>
-                            <%= form.text_field :min_800, class: "text_field" %>分
-                            <%= form.text_field :sec_800, class: "text_field" %>秒
-                            <%= form.text_field :msec_800, class: "text_field" %>
+                            <% hour_800, minute_800, second_800, msecond_800 = calc_time(@user.time_800) %> 
+                            <%= form.text_field :min_800, value: minute_800, class: "text_field" %>分
+                            <%= form.text_field :sec_800, value: second_800, class: "text_field" %>秒
+                            <%= form.text_field :msec_800, value: msecond_800, class: "text_field" %>
                         </div>
                         <div class="1000 time one-row">
                             <p>1000m</p>
-                            <%= form.text_field :min_1000, class: "text_field" %>分
-                            <%= form.text_field :sec_1000, class: "text_field" %>秒
-                            <%= form.text_field :msec_1000, class: "text_field" %>
+                            <% hour_1000, minute_1000, second_1000, msecond_1000 = calc_time(@user.time_1000) %> 
+                            <%= form.text_field :min_1000, value: minute_1000, class: "text_field" %>分
+                            <%= form.text_field :sec_1000, value: second_1000, class: "text_field" %>秒
+                            <%= form.text_field :msec_1000, value: msecond_1000, class: "text_field" %>
                         </div>
                     </div>
                     <div class="times two-row">
@@ -90,31 +92,31 @@
                     <div class="times two-row">
                         <div class="5k time one-row">
                             <p>5km</p>
+                            <%= form.text_field :hour_5k, class: "text_field" %>時間
                             <%= form.text_field :min_5k, class: "text_field" %>分
                             <%= form.text_field :sec_5k, class: "text_field" %>秒
-                            <%= form.text_field :msec_5k, class: "text_field" %>
                         </div>
                         <div class="10k time one-row">
                             <p>10km</p>
+                            <%= form.text_field :hour_10k, class: "text_field" %>時間
                             <%= form.text_field :min_10k, class: "text_field" %>分
                             <%= form.text_field :sec_10k, class: "text_field" %>秒
-                            <%= form.text_field :msec_10k, class: "text_field" %>
                         </div>
                     </div>
                     <div class="times">
                         <div class="half time">
                             <p>ハーフマラソン</p>
-                            <%= form.text_field :min_half, class: "text_field" %>時間
-                            <%= form.text_field :sec_half, class: "text_field" %>分
-                            <%= form.text_field :msec_half, class: "text_field" %>秒
+                            <%= form.text_field :hour_half, class: "text_field" %>時間
+                            <%= form.text_field :min_half, class: "text_field" %>分
+                            <%= form.text_field :sec_half, class: "text_field" %>秒
                         </div>
                     </div>
                     <div class="times">
                         <div class="marathon time">
                             <p>マラソン</p>
-                            <%= form.text_field :min_marathon, class: "text_field" %>時間
-                            <%= form.text_field :sec_marathon, class: "text_field" %>分
-                            <%= form.text_field :msec_marathon, class: "text_field" %>秒
+                            <%= form.text_field :hour_marathon, class: "text_field" %>時間
+                            <%= form.text_field :min_marathon, class: "text_field" %>分
+                            <%= form.text_field :sec_marathon, class: "text_field" %>秒
                         </div>
                     </div>
                 </div>

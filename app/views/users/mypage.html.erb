@@ -40,7 +40,7 @@
             </div>
             <div class="bio">
                 <%= image_tag "user_icon.svg", class: "user_icon" %>
-                <p class="name">陸上 太郎</p>
+                <p class="name"><%= @user.name %></p>
                 <div class="belongs">
                     <p>東大陸上部</p>
                     <p>長野マラソンクラブ</p>
@@ -48,17 +48,21 @@
             </div>
             <div class="basic_information">
                 <p>基本情報</p>
-                <div class="age">
-                    年齢
+                <div class="age info">
+                    <p>年齢</p>
+                    <p><%= @user.age %>歳</p>
                 </div>
-                <div class="sex">
-                    性別
+                <div class="sex info">
+                    <p>性別</p>
+                    <p><%= @user.sex %></p>
                 </div>
-                <div class="height">
-                    身長
+                <div class="height info">
+                    <p>身長</p>
+                    <p><%= @user.height %>cm</p>
                 </div>
-                <div class="weight">
-                    体重
+                <div class="weight info">
+                    <p>体重</p>
+                    <p><%= @user.weight %>kg</p>
                 </div>
             </div>
             <div class="best_time">

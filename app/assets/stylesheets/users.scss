@@ -496,6 +496,12 @@
                         font-weight: 600;
                         margin-bottom: 5px;
                     }
+                    .info {
+                        display: flex;
+                        p {
+                            width: 50%;
+                        }
+                    }
                 }
                 .best_time {
                     margin: 5px 30px 10px;

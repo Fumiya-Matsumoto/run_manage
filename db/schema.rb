@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_16_023528) do
+ActiveRecord::Schema.define(version: 2022_05_18_105800) do
 
   create_table "best_times", force: :cascade do |t|
     t.integer "user_id"
@@ -120,6 +120,18 @@ ActiveRecord::Schema.define(version: 2022_04_16_023528) do
     t.integer "sex"
     t.integer "height"
     t.integer "weight"
+    t.float "time_800"
+    t.float "time_1000"
+    t.float "time_1500"
+    t.float "time_2000"
+    t.float "time_3000"
+    t.float "time_5000"
+    t.float "time_10000"
+    t.float "time_3000sc"
+    t.float "time_5km"
+    t.float "time_10km"
+    t.float "time_half"
+    t.float "time_marathon"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
