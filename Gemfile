@@ -70,3 +70,5 @@ gem 'cocoon'
 gem 'rails-i18n'
 gem 'uglifier'
 gem 'bootstrap'
+# chart.jsの導入
+gem 'chart-js-rails', '~> 0.1.4'
